@@ -27,7 +27,6 @@
     bd.style.display = "none";
     bd.remove();
   }
-\
   
   // ✅ Redirect when "Yes" is clicked
   bd.querySelector("#age-yes").addEventListener("click", closeGate);
