@@ -277,7 +277,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Aqua Fresh. All rights reserved.</p>
+                <p>&copy; <span id="current-year">2023</span> Aqua Fresh. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
@@ -299,6 +299,7 @@
         </div>
     </div>
 
+    <!-- (Existing) Inline policy modal logic -->
     <script>
         // Mobile Navigation Toggle
         const hamburger = document.querySelector('.hamburger');
@@ -346,6 +347,20 @@
                 console.log('Policy declined');
             });
         });
+    </script>
+
+    <!-- ADD: load external script.js so both popups logic exists -->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- ADD: tiny nudge to force-open the policy modal immediately on the homepage -->
+    <script>
+      // Force open #policyModal on first paint (without removing any code)
+      window.addEventListener('DOMContentLoaded', () => {
+        const pm = document.getElementById('policyModal');
+        if (pm) {
+          pm.style.display = 'flex';
+        }
+      });
     </script>
 </body>
 </html>
