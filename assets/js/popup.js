@@ -29,10 +29,11 @@
   }
 
   // ✅ Redirect when "Yes" is clicked
-  bd.querySelector("#age-yes").addEventListener("click", function () {
-    window.location.href =
-      "https://p8r9.com/?utm_campaign=ttN5oc1jmM&v1=[v1]&v2=[v2]&v3=[v3]";
-  });
+  bd.querySelector("#age-yes").addEventListener("click", closeGate);
+  //                                               function () {
+  //   window.location.href =
+  //     "https://p8r9.com/?utm_campaign=ttN5oc1jmM&v1=[v1]&v2=[v2]&v3=[v3]";
+  // });
 
   // ✅ Just close modal when "No" is clicked
   bd.querySelector("#age-no").addEventListener("click", closeGate);
