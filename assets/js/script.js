@@ -161,7 +161,18 @@ const utils = {
   const isHome = path.endsWith('/') || path.endsWith('index.html');
   if (!isHome) return;
 
-  // Only show once per session
+  // If the static #policyModal exists (your index.html), show that and exit.
+  const existing = document.getElementById('policyModal');
+  if (existing) {
+    // only once per session
+    if (sessionStorage.getItem('policyModalShown') !== '1') {
+      sessionStorage.setItem('policyModalShown', '1');
+      existing.style.display = 'flex';  // uses CSS overrides to center it
+    }
+    return;
+  }
+
+  // Only show once per session for injected modal
   if (sessionStorage.getItem('policyModalShown') === '1') return;
   sessionStorage.setItem('policyModalShown', '1');
 
@@ -169,7 +180,7 @@ const utils = {
   const bd = document.createElement('div');
   bd.className = 'modal-backdrop';
 
-  // Modal HTML
+  // Modal HTML (FIXED: now a valid template string)
   const modalHTML = document.createElement('div');
   modalHTML.className = 'modal';
   modalHTML.innerHTML = `
@@ -210,4 +221,3 @@ const utils = {
   });
 
 })();
-
